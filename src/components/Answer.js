@@ -1,10 +1,12 @@
 import React from 'react';
 
-const Answer = () => {
+const Answer = ({answerText, onSelectAnswer, index, currentAnswer, correctAnswer}) => {
+    const letterMapping = ['A', 'B', 'C', 'D'];
+    const isCorrectAnswer = currentAnswer && answerText === correctAnswer;
     return (
-        <div className='answer'>
-            <div className='answer-letter'>A</div>
-            <div className='answer-text'>Text of question</div>
+        <div className='answer' onClick={() => onSelectAnswer(answerText)}>
+            <div className='answer-letter'>{letterMapping[index]}</div>
+            <div className='answer-text'>{answerText}</div>
         </div>
     );
 };
